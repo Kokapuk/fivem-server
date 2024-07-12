@@ -7,6 +7,7 @@ const giveAllWeapons = () => {
 
     { hash: 0x3656c8c1 }, // Taser
     { hash: 0xaf3696a1 }, // Up-n-Atomizer
+    { hash: 0xcb96392f }, // Heavy Revolver Mk II
 
     {
       hash: 0x13532244, // Assault SMG
@@ -151,8 +152,13 @@ RegisterCommand('weapons', giveAllWeapons, false);
 RegisterCommand(
   'tpw',
   async () => {
-    const entity = exports.freeroam.getLocalPlayerVehicle() ?? PlayerPedId();
     const waypoint = GetFirstBlipInfoId(8);
+
+    if (!DoesBlipExist(waypoint)) {
+      return;
+    }
+
+    const entity = exports.freeroam.getLocalPlayerVehicle() ?? PlayerPedId();
     const waypointPos = GetBlipInfoIdCoord(waypoint);
     const highestZ = GetHeightmapTopZForPosition(waypointPos[0], waypointPos[1]);
     const sightingPos = [waypointPos[0], waypointPos[1], highestZ];

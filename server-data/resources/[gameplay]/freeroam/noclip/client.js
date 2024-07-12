@@ -1,4 +1,4 @@
-const speedModes = { slow: 0.15, medium: 0.5, fast: 2, hyper: 4 };
+const speedModes = { slow: 0.1, medium: 0.5, fast: 2, hyper: 4 };
 let speedMultiplier = speedModes.medium;
 let isActive = false;
 
