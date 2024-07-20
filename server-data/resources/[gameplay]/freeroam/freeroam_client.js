@@ -7,7 +7,15 @@ const giveAllWeapons = () => {
 
     { hash: 0x3656c8c1 }, // Taser
     { hash: 0xaf3696a1 }, // Up-n-Atomizer
-    { hash: 0xcb96392f }, // Heavy Revolver Mk II
+    {
+      hash: 0xcb96392f, // Heavy Revolver Mk II
+      components: [
+        0xdc8ba3f, // Full Metal Jacket Rounds
+        0x420fd713, // Holographic Sight
+        0x27077ccb, // Compressor
+      ],
+      tint: 18, // Bold Green Features
+    },
 
     {
       hash: 0x13532244, // Assault SMG
@@ -104,10 +112,10 @@ const giveAllWeapons = () => {
     }
 
     const ammoType = GetPedAmmoTypeFromWeapon(player, weapon.hash);
-    AddAmmoToPedByType(player, ammoType, 1);
+    AddAmmoToPedByType(player, ammoType, 1000);
   });
 
-  SetPedInfiniteAmmoClip(player, true);
+  // SetPedInfiniteAmmoClip(player, true);
 };
 
 SetMinimapComponent(15, true, 0);
